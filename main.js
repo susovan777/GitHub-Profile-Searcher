@@ -1,4 +1,12 @@
 
+let userId;
+
+const userInput = document.getElementById('search');
+userInput.addEventListener('change', e => {
+    // console.log(e.target.value);
+    // getUserDetails(e.target.value)
+})
+
 async function getUserDetails(id) {
     let userDetails;
     try {
@@ -19,7 +27,8 @@ async function getUserDetails(id) {
 
 // getUserDetails('susovan777')
 getUserDetails('mikr13')
+// getUserDetails(userId)
 
 function createUserCard(userData) {
-    
+
 }
