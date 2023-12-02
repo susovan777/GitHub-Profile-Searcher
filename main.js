@@ -1,11 +1,19 @@
-
-let userId;
+// gitHub API: https://api.github.com/search/users?q=type:user
 
 const userInput = document.getElementById('search');
 userInput.addEventListener('change', e => {
+    document.getElementById('main').innerHTML = '';
     // console.log(e.target.value);
-    // getUserDetails(e.target.value)
+    let userId = e.target.value;
+    init(userId);
 })
+
+// 🔸- without this function promise can not convert to an object
+async function init(id) {
+    let userD = await getUserDetails(id);
+    console.log(userD);
+    createUserCard(userD);
+}
 
 async function getUserDetails(id) {
     let userDetails;
@@ -21,15 +29,15 @@ async function getUserDetails(id) {
     catch (err) {
         return null;
     }
-    console.log(userDetails);
+    // console.log(userDetails);
     return userDetails;
 }
 
 // getUserDetails('susovan777')
-getUserDetails('mikr13')
-// getUserDetails(userId)
+// getUserDetails('mikr13')
 
 function createUserCard(user) {
+    // console.log(user);
     let userCard = document.createElement('div');
     userCard.setAttribute('class', 'card');
     userCard.innerHTML = `
@@ -60,6 +68,3 @@ function createUserCard(user) {
 
     document.getElementById('main').append(userCard);
 }
-
-let userD = getUserDetails('susovan777');
-createUserCard(userD)
