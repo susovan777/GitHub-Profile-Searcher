@@ -1,21 +1,22 @@
 // gitHub API: https://api.github.com/search/users?q=type:user
 
-// const userInput = document.getElementById('search');
-// userInput.addEventListener('change', e => {
-//     document.getElementById('main').innerHTML = '';
-//     // console.log(e.target.value);
-//     let userId = e.target.value;
-//     init(userId);
-// })
+const userInput = document.getElementById('search');
+userInput.addEventListener('change', e => {
+    document.getElementById('main').innerHTML = '';
+    if(e.target.value == null) window.reload();
+    // console.log(e.target.value);
+    let userId = e.target.value;
+    init(userId);
+})
 
 // 🔸- without this function promise can not convert to an object
-/* async function init(id) {
+async function init(id) {
     let userD = await getUserDetails(id);
     console.log(userD);
     createUserCard(userD);
-} */
+}
 
-/* async function getUserDetails(id) {
+async function getUserDetails(id) {
     let userDetails;
     try {
         const url = `https://api.github.com/users/${id}`;
@@ -31,12 +32,12 @@
     }
     // console.log(userDetails);
     return userDetails;
-} */
+}
 
 // getUserDetails('susovan777')
 // getUserDetails('mikr13')
 
-/* function createUserCard(user) {
+function createUserCard(user) {
     // console.log(user);
     let userCard = document.createElement('div');
     userCard.setAttribute('class', 'card');
@@ -67,9 +68,9 @@
     `;
 
     document.getElementById('main').append(userCard);
-} */
+}
 
-class GitHub {
+/* class GitHub {
     constructor(userId) {
         this.userName = userId;
     }
@@ -142,4 +143,4 @@ userInput.addEventListener('change', e => {
     // console.log(e.target.value);
     let userId = e.target.value;
     sahoo.init(userId);
-})
+}) */
